@@ -34,7 +34,8 @@ class Jobs extends Component {
   getJobsList = async () => {
     this.setState({jobApiStatus: jobApiStatusConstant.LOADING})
     const {searchQuery, minimumPackage, employmentTypeList} = this.state
-    const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypeList.join()}&minimum_package=${minimumPackage}&search=${searchQuery}`
+    const employmentTypes = employmentTypeList.join()
+    const apiUrl = `https://apis.ccbp.in/jobs?employment_type=${employmentTypes}&minimum_package=${minimumPackage}&search=${searchQuery}`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',

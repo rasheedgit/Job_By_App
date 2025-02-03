@@ -44,7 +44,7 @@ const Filter = props => {
   return (
     <>
       <hr className="filter-line" />
-      <p className="filter-title">Type of Employment</p>
+      <h1 className="filter-title">Type of Employment</h1>
       <ul className="filter-list">
         {employmentTypesList.map(({employmentTypeId, label}) => (
           <li className="filter-list-item" key={label}>
@@ -61,7 +61,7 @@ const Filter = props => {
         ))}
       </ul>
       <hr className="filter-line" />
-      <p className="filter-title">Salary Range</p>
+      <h1 className="filter-title">Salary Range</h1>
       <ul className="filter-list">
         {salaryRangesList.map(({salaryRangeId, label}) => (
           <li className="filter-list-item" key={label}>

@@ -15,7 +15,7 @@ export const MobileSearchQuery = props => {
       />
       <button
         data-testid="searchButton"
-        type="submit"
+        type="button"
         className="search-button"
       >
         <BiSearchAlt2 color="#fff" size="20" />
@@ -38,7 +38,7 @@ export const DesktopSearchQuery = props => {
       />
       <button
         data-testid="searchButton"
-        type="submit"
+        type="button"
         className="search-button"
       >
         <BiSearchAlt2 color="#fff" size="20" />
