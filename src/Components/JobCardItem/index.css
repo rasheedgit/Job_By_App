@@ -1,99 +1,103 @@
-import styled from 'styled-components'
+.navbar-link {
+  color: inherit;
+  text-decoration: none;
+}
 
-export const JobCard = styled.div`
+.job-card {
   width: 100%;
   background-color: #272727;
   padding: 20px;
   border-radius: 14px;
   margin-bottom: 20px;
-`
+}
 
-export const CompanyInfo = styled.div`
+.job-card-company-info {
   width: 100%;
   display: flex;
   margin-bottom: 24px;
-`
+}
 
-export const CompanyLogo = styled.img`
+.job-card-company-logo {
   width: 50px;
   margin-right: 15px;
   align-self: flex-start;
-`
+}
 
-export const JobTitle = styled.h1`
+.job-card-title {
   color: #fff;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   margin: 0px 0px 10px 0px;
   width: 100%;
-`
+}
 
-export const Rating = styled.p`
+.job-card-rating {
   color: #fff;
   font-size: 16px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-weight: bold;
   margin: 0px;
+  margin-left: 2px;
   display: inline;
   position: relative;
   bottom: 1px;
-`
+}
 
-export const JobDetailsContainer = styled.div`
+.job-card-details-container {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
-`
+}
 
-export const LocationTypeContainer = styled.div`
+.job-card-location-type {
   display: flex;
   align-items: center;
-`
+}
 
-export const Location = styled.p`
+.job-card-location {
   color: #fff;
   font-size: 12px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   margin: 0px 15px 0px 8px;
-`
+}
 
-export const JobType = styled.p`
+.job-card-type {
   color: #fff;
   font-size: 12px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   margin: 0px 15px 0px 8px;
-`
+}
 
-export const Salary = styled.p`
+.job-card-salary {
   color: #fff;
   font-size: 14px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-weight: bold;
   margin: 0px;
-`
+}
 
-export const StyledHr = styled.hr`
+.job-card-divider {
   border: 0;
   height: 1px;
   background: #fff;
   margin: 10px 0;
-`
+}
 
-export const DescriptionTitle = styled.p`
+.job-card-description-title {
   color: #fff;
   font-size: 14px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-weight: bold;
   margin: 14px 0px 12px 0px;
-`
+}
 
-export const Description = styled.p`
+.job-card-description {
   color: #fff;
   font-size: 13px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   word-spacing: 2px;
   line-height: 1.5;
   margin: 0px 0px 10px 0px;
-`
+}

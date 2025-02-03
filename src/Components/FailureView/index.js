@@ -1,40 +1,36 @@
-import {
-  FailureContainer,
-  FailureImage,
-  FailureTitle,
-  FailureMessage,
-  RetryButton,
-} from './styledComponents'
+import './index.css'
 
 export const ApiFailureView = props => {
-  const {getJobsList} = props
+  const {retry} = props
 
   return (
-    <FailureContainer>
-      <FailureImage
+    <div className="api-failure-container">
+      <img
+        className="api-failure-image"
         src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
         alt="failure view"
       />
-      <FailureTitle>Oops! Something Went Wrong</FailureTitle>
-      <FailureMessage>
+      <h1 className="api-failure-title">Oops! Something Went Wrong</h1>
+      <p className="api-failure-message">
         We cannot seem to find the page you are looking for.
-      </FailureMessage>
-      <RetryButton onClick={getJobsList} type="button">
+      </p>
+      <button className="api-retry-button" onClick={retry} type="button">
         Retry
-      </RetryButton>
-    </FailureContainer>
+      </button>
+    </div>
   )
 }
 
 export const NoJobsFound = () => (
-  <FailureContainer>
-    <FailureImage
+  <div className="api-failure-container">
+    <img
+      className="api-failure-image"
       src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
       alt="no jobs"
     />
-    <FailureTitle>No Jobs Found</FailureTitle>
-    <FailureMessage>
+    <h1 className="api-failure-title">No Jobs Found</h1>
+    <p className="api-failure-message">
       We could not find any jobs. Try other filters.
-    </FailureMessage>
-  </FailureContainer>
+    </p>
+  </div>
 )

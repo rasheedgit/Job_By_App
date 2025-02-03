@@ -1,15 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {
-  ProfileContainer,
-  ProfileImage,
-  UserName,
-  ShortBio,
-  FailureContainer,
-  RetryButton,
-  LoaderContainer,
-} from './styledComponents'
+import './index.css'
 
 const apiStatusConstants = {
   INITIAL: 'INITIAL',
@@ -64,17 +56,21 @@ class ProfileInfo extends Component {
   }
 
   renderLoadingView = () => (
-    <LoaderContainer data-testid="loader">
+    <div className="profile-loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="30" width="30" />
-    </LoaderContainer>
+    </div>
   )
 
   renderFailureView = () => (
-    <FailureContainer>
-      <RetryButton onClick={this.getProfileInfo} type="button">
+    <div className="profile-failure-container">
+      <button
+        className="profile-retry-button"
+        onClick={this.getProfileInfo}
+        type="button"
+      >
         Retry
-      </RetryButton>
-    </FailureContainer>
+      </button>
+    </div>
   )
 
   renderSuccessView = () => {
@@ -82,11 +78,11 @@ class ProfileInfo extends Component {
     const {name, profileImageUrl, shortBio} = profileDetails
 
     return (
-      <ProfileContainer>
-        <ProfileImage src={profileImageUrl} alt="avatar" />
-        <UserName>{name}</UserName>
-        <ShortBio>{shortBio}</ShortBio>
-      </ProfileContainer>
+      <div className="profile-container">
+        <img className="profile-image" src={profileImageUrl} alt="avatar" />
+        <h1 className="profile-username">{name}</h1>
+        <p className="profile-short-bio">{shortBio}</p>
+      </div>
     )
   }
 

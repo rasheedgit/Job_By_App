@@ -9,16 +9,10 @@ import {ApiFailureView, NoJobsFound} from '../FailureView'
 import {MobileSearchQuery, DesktopSearchQuery} from '../SearchQueryComponents'
 import Filter from '../Filter'
 
-import {
-  JobsContainer,
-  LoaderContainer,
-  SuccessViewJobsList,
-  FiltersJobsContainer,
-  ProfileFiltersContainer,
-  SearchJobsContainer,
-} from './styledComponents'
+import './index.css'
 
 const jobApiStatusConstant = {
+  INITIAL: 'INITIAL',
   LOADING: 'LOADING',
   FAILURE: 'FAILURE',
   SUCCESS: 'SUCCESS',
@@ -26,7 +20,7 @@ const jobApiStatusConstant = {
 
 class Jobs extends Component {
   state = {
-    jobApiStatus: jobApiStatusConstant.FAILURE,
+    jobApiStatus: jobApiStatusConstant.INITIAL,
     jobsList: [],
     searchQuery: '',
     minimumPackage: '',
@@ -102,12 +96,12 @@ class Jobs extends Component {
   }
 
   renderLoadingView = () => (
-    <LoaderContainer data-testid="loader">
+    <div className="jobs-loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-    </LoaderContainer>
+    </div>
   )
 
-  renderFailureView = () => <ApiFailureView getJobsList={this.getJobsList} />
+  renderFailureView = () => <ApiFailureView retry={this.getJobsList} />
 
   renderSuccessView = () => {
     const {jobsList} = this.state
@@ -116,11 +110,11 @@ class Jobs extends Component {
     }
 
     return (
-      <SuccessViewJobsList>
+      <ul className="jobs-success-view-list">
         {jobsList.map(eachItem => (
           <JobCardItem key={eachItem.id} jobDetails={eachItem} />
         ))}
-      </SuccessViewJobsList>
+      </ul>
     )
   }
 
@@ -143,10 +137,10 @@ class Jobs extends Component {
     const {searchQuery, minimumPackage, employmentTypeList} = this.state
 
     return (
-      <JobsContainer>
+      <div className="jobs-container">
         <Header />
-        <FiltersJobsContainer>
-          <ProfileFiltersContainer>
+        <div className="jobs-filters-container">
+          <div className="jobs-profile-filters-container">
             <MobileSearchQuery
               changeQuery={this.onChangeSearchQuery}
               value={searchQuery}
@@ -159,17 +153,17 @@ class Jobs extends Component {
               changeJobType={this.onChangeEmploymentTypeList}
               jobTypeList={employmentTypeList}
             />
-          </ProfileFiltersContainer>
-          <SearchJobsContainer>
+          </div>
+          <div className="jobs-search-container">
             <DesktopSearchQuery
               changeQuery={this.onChangeSearchQuery}
               value={searchQuery}
               formSubmit={this.onSearchQueryFormSubmit}
             />
             {this.renderJobs()}
-          </SearchJobsContainer>
-        </FiltersJobsContainer>
-      </JobsContainer>
+          </div>
+        </div>
+      </div>
     )
   }
 }

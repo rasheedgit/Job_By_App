@@ -1,6 +1,4 @@
-import styled from 'styled-components'
-
-export const MobileSearchContainer = styled.form`
+.mobile-search-container {
   width: 100%;
   background-color: #000;
   border: solid 1px #272727;
@@ -9,16 +7,20 @@ export const MobileSearchContainer = styled.form`
   align-items: center;
   border-radius: 2px;
   margin-top: 20px;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .mobile-search-container {
     display: none;
   }
-`
+}
 
-export const DesktopSearchContainer = styled.form`
+.desktop-search-container {
   display: none;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .desktop-search-container {
     display: flex;
     width: 100%;
     max-width: 400px;
@@ -28,11 +30,10 @@ export const DesktopSearchContainer = styled.form`
     align-items: center;
     border-radius: 2px;
     margin-top: 20px;
-    margin-bottom: 5px;
   }
-`
+}
 
-export const SearchInput = styled.input`
+.search-input {
   width: 100%;
   height: 100%;
   border: none;
@@ -42,13 +43,13 @@ export const SearchInput = styled.input`
   font-family: Roboto;
   color: #fff;
   cursor: pointer;
-`
+}
 
-export const SearchButton = styled.button`
+.search-button {
   background-color: #272727;
   width: 60px;
   height: 100%;
   border: none;
   outline: none;
   cursor: pointer;
-`
+}

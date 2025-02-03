@@ -1,27 +1,24 @@
-import styled from 'styled-components'
-import {Link} from 'react-router-dom'
-
-export const NavbarContainer = styled.div`
+.header-navbar-container {
   width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #272727;
-`
+}
 
-export const Navbar = styled.div`
+.header-navbar {
   width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+}
 
-export const WebsiteLogo = styled.img`
+.header-website-logo {
   width: 100px;
-`
+}
 
-export const MobileNavbarList = styled.ul`
+.header-mobile-navbar-list {
   list-style: none;
   padding-left: 0;
   display: flex;
@@ -29,36 +26,45 @@ export const MobileNavbarList = styled.ul`
   justify-content: space-between;
   width: 130px;
   color: #fff;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .header-mobile-navbar-list {
     display: none;
   }
-`
+}
 
-export const NavbarLink = styled(Link)`
+.navbar-link {
   color: inherit;
   text-decoration: none;
-`
+}
 
-export const MobileNavbarItem = styled.li`
+.header-mobile-navbar-item {
   font-size: 26px;
   color: #f9fafc;
   margin: 0;
-`
+}
 
-export const MobileLogoutButton = styled.button`
+.header-mobile-icon {
+  font-size: 26px;
+  color: #f9fafc;
+}
+
+.header-mobile-logout-button {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
   color: #fff;
   font-size: 26px;
-`
+}
 
-export const DesktopNavbarList = styled.ul`
+.header-desktop-navbar-list {
   display: none;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .header-desktop-navbar-list {
     display: flex;
     list-style: none;
     padding-left: 0;
@@ -66,21 +72,23 @@ export const DesktopNavbarList = styled.ul`
     justify-content: space-between;
     width: 100px;
   }
-`
+}
 
-export const DesktopNavbarItem = styled.p`
-  font-family: Roboto;
+.header-desktop-navbar-item {
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #f9fafc;
-`
+}
 
-export const DesktopLogoutButton = styled.button`
+.header-desktop-logout-button {
   display: none;
+}
 
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
+  .header-desktop-logout-button {
     display: block;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-size: 12px;
     font-weight: 500;
     color: #fff;
@@ -91,4 +99,4 @@ export const DesktopLogoutButton = styled.button`
     width: 100px;
     height: 30px;
   }
-`
+}

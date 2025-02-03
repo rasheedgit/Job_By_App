@@ -1,0 +1,28 @@
+.filter-line {
+  border-color: #475569;
+}
+
+.filter-title {
+  color: #fff;
+  font-size: 15px;
+  font-family: Roboto, sans-serif;
+}
+
+.filter-list {
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+}
+
+.filter-list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.filter-label {
+  color: #fff;
+  font-size: 13px;
+  font-family: Roboto, sans-serif;
+  margin-left: 5px;
+}

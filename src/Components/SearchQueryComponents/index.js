@@ -1,26 +1,26 @@
 import {BiSearchAlt2} from 'react-icons/bi'
-import {
-  MobileSearchContainer,
-  DesktopSearchContainer,
-  SearchInput,
-  SearchButton,
-} from './styledComponents'
+import './index.css'
 
 export const MobileSearchQuery = props => {
   const {changeQuery, value, formSubmit} = props
 
   return (
-    <MobileSearchContainer onSubmit={formSubmit}>
-      <SearchInput
+    <form className="mobile-search-container" onSubmit={formSubmit}>
+      <input
         type="search"
         placeholder="Search"
         value={value}
         onChange={changeQuery}
+        className="search-input"
       />
-      <SearchButton type="submit">
+      <button
+        data-testid="searchButton"
+        type="submit"
+        className="search-button"
+      >
         <BiSearchAlt2 color="#fff" size="20" />
-      </SearchButton>
-    </MobileSearchContainer>
+      </button>
+    </form>
   )
 }
 
@@ -28,16 +28,21 @@ export const DesktopSearchQuery = props => {
   const {changeQuery, value, formSubmit} = props
 
   return (
-    <DesktopSearchContainer onSubmit={formSubmit}>
-      <SearchInput
+    <form className="desktop-search-container" onSubmit={formSubmit}>
+      <input
         type="search"
         placeholder="Search"
         value={value}
         onChange={changeQuery}
+        className="search-input"
       />
-      <SearchButton type="submit">
+      <button
+        data-testid="searchButton"
+        type="submit"
+        className="search-button"
+      >
         <BiSearchAlt2 color="#fff" size="20" />
-      </SearchButton>
-    </DesktopSearchContainer>
+      </button>
+    </form>
   )
 }

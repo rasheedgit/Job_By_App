@@ -1,10 +1,4 @@
-import {
-  FilterTitle,
-  FilterList,
-  FilterListItem,
-  FilterLabel,
-  FilterLine,
-} from './styledComponents'
+import './index.css'
 
 const employmentTypesList = [
   {
@@ -49,26 +43,28 @@ const Filter = props => {
 
   return (
     <>
-      <FilterLine />
-      <FilterTitle>Type of Employment</FilterTitle>
-      <FilterList>
+      <hr className="filter-line" />
+      <p className="filter-title">Type of Employment</p>
+      <ul className="filter-list">
         {employmentTypesList.map(({employmentTypeId, label}) => (
-          <FilterListItem key={employmentTypeId}>
+          <li className="filter-list-item" key={label}>
             <input
               onChange={() => changeJobType(employmentTypeId)}
               checked={jobTypeList.includes(employmentTypeId)}
               id={employmentTypeId}
               type="checkbox"
             />
-            <FilterLabel htmlFor={employmentTypeId}>{label}</FilterLabel>
-          </FilterListItem>
+            <label className="filter-label" htmlFor={employmentTypeId}>
+              {label}
+            </label>
+          </li>
         ))}
-      </FilterList>
-      <FilterLine />
-      <FilterTitle>Salary Range</FilterTitle>
-      <FilterList>
+      </ul>
+      <hr className="filter-line" />
+      <p className="filter-title">Salary Range</p>
+      <ul className="filter-list">
         {salaryRangesList.map(({salaryRangeId, label}) => (
-          <FilterListItem key={salaryRangeId}>
+          <li className="filter-list-item" key={label}>
             <input
               id={salaryRangeId}
               checked={activePackage === salaryRangeId}
@@ -76,10 +72,12 @@ const Filter = props => {
               type="radio"
               name="salary"
             />
-            <FilterLabel htmlFor={salaryRangeId}>{label}</FilterLabel>
-          </FilterListItem>
+            <label className="filter-label" htmlFor={salaryRangeId}>
+              {label}
+            </label>
+          </li>
         ))}
-      </FilterList>
+      </ul>
     </>
   )
 }

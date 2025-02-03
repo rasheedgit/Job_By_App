@@ -1,34 +1,23 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import Header from '../Header'
-import {
-  HomeContainer,
-  HomeContent,
-  HomeTitle,
-  HomeDescription,
-  FindJobsButton,
-} from './styledComponents'
+import './index.css'
 
-const Home = props => {
-  const onFindJobs = () => {
-    const {history} = props
-    history.push('/jobs')
-  }
-
-  return (
-    <HomeContainer>
-      <Header />
-      <HomeContent>
-        <HomeTitle>Find The Job That Fits Your Life</HomeTitle>
-        <HomeDescription>
-          Millions of people are searching for jobs, salary information, company
-          reviews. Find the job that fits your abilities and potential.
-        </HomeDescription>
-        <FindJobsButton onClick={onFindJobs} type="button">
+const Home = () => (
+  <div className="home-container">
+    <Header />
+    <div className="home-content">
+      <h1 className="home-title">Find The Job That Fits Your Life</h1>
+      <p className="home-description">
+        Millions of people are searching for jobs, salary information, company
+        reviews. Find the job that fits your abilities and potential.
+      </p>
+      <Link to="/jobs">
+        <button type="button" className="home-find-jobs-button">
           Find Jobs
-        </FindJobsButton>
-      </HomeContent>
-    </HomeContainer>
-  )
-}
+        </button>
+      </Link>
+    </div>
+  </div>
+)
 
 export default withRouter(Home)

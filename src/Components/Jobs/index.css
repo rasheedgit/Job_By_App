@@ -1,50 +1,54 @@
-import styled from 'styled-components'
-
-export const JobsContainer = styled.div`
+.jobs-container {
   min-height: 100vh;
   background-color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+}
 
-export const LoaderContainer = styled.div`
+.jobs-loader-container {
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-`
+}
 
-export const SuccessViewJobsList = styled.ul`
-  width: 100%;
+.jobs-success-view-list {
   list-style: none;
   padding-left: 0;
-  margin-top: 20px;
-`
-
-export const FiltersJobsContainer = styled.div`
   width: 100%;
+  margin-top: 20px;
+}
+
+.jobs-filters-container {
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+  .jobs-filters-container {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
   }
-`
+}
 
-export const ProfileFiltersContainer = styled.div`
+.jobs-profile-filters-container {
   width: 90%;
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
+  .jobs-profile-filters-container {
     width: 260px;
     margin-right: 24px;
   }
-`
+}
 
-export const SearchJobsContainer = styled.div`
+.jobs-search-container {
   width: 90%;
   max-width: 600px;
   display: flex;
   flex-direction: column;
-`
+}
