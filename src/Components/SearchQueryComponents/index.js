@@ -5,7 +5,7 @@ export const MobileSearchQuery = props => {
   const {changeQuery, value, formSubmit} = props
 
   return (
-    <form className="mobile-search-container" onSubmit={formSubmit}>
+    <div className="mobile-search-container">
       <input
         type="search"
         placeholder="Search"
@@ -16,11 +16,12 @@ export const MobileSearchQuery = props => {
       <button
         data-testid="searchButton"
         type="button"
+        onClick={formSubmit}
         className="search-button"
       >
         <BiSearchAlt2 color="#fff" size="20" />
       </button>
-    </form>
+    </div>
   )
 }
 
@@ -28,7 +29,7 @@ export const DesktopSearchQuery = props => {
   const {changeQuery, value, formSubmit} = props
 
   return (
-    <form className="desktop-search-container" onSubmit={formSubmit}>
+    <div className="desktop-search-container">
       <input
         type="search"
         placeholder="Search"
@@ -39,10 +40,11 @@ export const DesktopSearchQuery = props => {
       <button
         data-testid="searchButton"
         type="button"
+        onClick={formSubmit}
         className="search-button"
       >
         <BiSearchAlt2 color="#fff" size="20" />
       </button>
-    </form>
+    </div>
   )
 }
