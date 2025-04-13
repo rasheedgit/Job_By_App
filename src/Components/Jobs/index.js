@@ -25,6 +25,7 @@ class Jobs extends Component {
     searchQuery: '',
     minimumPackage: '',
     employmentTypeList: [],
+    locationList: [],
   }
 
   componentDidMount() {
@@ -96,6 +97,18 @@ class Jobs extends Component {
     }, this.getJobsList)
   }
 
+  onChangeLocation = id => {
+    this.setState(prevState => {
+      const list = new Set(prevState.locationList)
+      if (list.has(id)) {
+        list.delete(id)
+      } else {
+        list.add(id)
+      }
+      return {locationList: [...list]}
+    }, this.getJobsList)
+  }
+
   renderLoadingView = () => (
     <div className="jobs-loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
@@ -105,14 +118,30 @@ class Jobs extends Component {
   renderFailureView = () => <ApiFailureView retry={this.getJobsList} />
 
   renderSuccessView = () => {
-    const {jobsList} = this.state
+    const {jobsList, locationList} = this.state
+
     if (jobsList.length === 0) {
+      return <NoJobsFound />
+    }
+
+    const filteredJobsList =
+      locationList.length === 0
+        ? jobsList
+        : jobsList.filter(eachJob =>
+            locationList.some(
+              selectedLocation =>
+                selectedLocation.toLowerCase() ===
+                eachJob.location.toLowerCase(),
+            ),
+          )
+
+    if (filteredJobsList.length === 0) {
       return <NoJobsFound />
     }
 
     return (
       <ul className="jobs-success-view-list">
-        {jobsList.map(eachItem => (
+        {filteredJobsList.map(eachItem => (
           <JobCardItem key={eachItem.id} jobDetails={eachItem} />
         ))}
       </ul>
@@ -136,6 +165,7 @@ class Jobs extends Component {
 
   render() {
     const {searchQuery, minimumPackage, employmentTypeList} = this.state
+    const {locationList} = this.state
 
     return (
       <div className="jobs-container">
@@ -153,6 +183,8 @@ class Jobs extends Component {
               activePackage={minimumPackage}
               changeJobType={this.onChangeEmploymentTypeList}
               jobTypeList={employmentTypeList}
+              changeLocation={this.onChangeLocation}
+              locationList={locationList}
             />
           </div>
           <div className="jobs-search-container">
